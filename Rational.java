@@ -1,3 +1,8 @@
+/* Team Hamburglars: Sarah Yoon and Gabriel Marks
+APCS1 pd10
+HW32 -- Irrationality Stops Here
+2015-11-17 */
+
 public class Rational {
     private int numerator;
     private int denominator;
