@@ -33,8 +33,8 @@ public class Rational {
 	denominator *= i.getDenom();
     }
     public void divide(Rational i) {
-	numerator /= i.getNum();
-	denominator /= i.getDenom();
+	Rational recip = new Rational(i.getDenom(),i.getNum());
+	multiply(recip);
     }
 }
 
