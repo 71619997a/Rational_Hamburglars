@@ -13,7 +13,10 @@ public class Rational {
     }
     public Rational(int n,int d) {
 	numerator = n;
-	denominator = d;
+	if (d!= 0) {
+	    denominator = d;
+	}
+	else {System.out.println("Naw. Undefined.");}
     }
     public double floatValue() {
 	return n/(d*1.);
