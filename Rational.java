@@ -19,6 +19,12 @@ public class Rational {
 	return n/(d*1.);
     }
 
-
+    public String toString() {
+	return numerator + "/" + denominator;
+    }
+    public void multiply() {
+    }
+    public void divide() {
+    }
 }
 
