@@ -36,5 +36,16 @@ public class Rational {
 	Rational recip = new Rational(i.getDenom(),i.getNum());
 	multiply(recip);
     }
+    public static void main(String[] args){
+	Rational rat1 = new Rational();
+	Rational rat2 = new Rational(1,2);
+	Rational rat3 = new Rational(5,3);
+	System.out.println(rat1 + " = " + rat1.floatValue());
+	System.out.println(rat2);
+	rat2.multiply(rat3); //5/6
+	System.out.println(rat2);
+	rat3.divide(rat2); //2 = 30/15
+	System.out.println(rat3);
+    }
 }
 
