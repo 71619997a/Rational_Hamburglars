@@ -23,10 +23,12 @@ public class Rational {
 	return numerator + "/" + denominator;
     }
     public void multiply(Rational i) {
-	numerator *= i.getNumerator();
-	denominator *= i.getDenominator();
+	numerator *= i.getNum();
+	denominator *= i.getDenom();
     }
     public void divide() {
+	numerator /= i.getNum();
+	denominator /= i.getDenom();
     }
 }
 
