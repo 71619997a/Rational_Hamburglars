@@ -16,10 +16,13 @@ public class Rational {
 	if (d!= 0) {
 	    denominator = d;
 	}
-	else {System.out.println("Naw. Undefined.");}
+	else {
+	    System.out.println("Naw. Undefined. Denominator set to 1.");
+	    denominator = 1;
+	}
     }
     public double floatValue() {
-	return n/(d*1.);
+	return (double)numerator / denominator;
     }
 
     public String toString() {
@@ -29,7 +32,7 @@ public class Rational {
 	numerator *= i.getNum();
 	denominator *= i.getDenom();
     }
-    public void divide() {
+    public void divide(Rational i) {
 	numerator /= i.getNum();
 	denominator /= i.getDenom();
     }
