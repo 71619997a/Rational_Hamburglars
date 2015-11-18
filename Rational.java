@@ -1,7 +1,7 @@
 /* Team Hamburglars: Adam McKoy and Gabriel Marks
-APCS1 pd10
-HW32 -- Irrationality Stops Here
-2015-11-17 */
+   APCS1 pd10
+   HW33 -- Do You Even Add, Bro?
+   2015-11-19 */
 
 public class Rational {
     private int numerator;
@@ -16,7 +16,7 @@ public class Rational {
 	numerator = 0;
 	denominator = 1;
     }
-    public Rational(int n,int d) {
+    public Rational(int n,int d) { //makes sure the Rational doesn't have a denom of 0
 	numerator = n;
 	if (d!= 0) {
 	    denominator = d;
@@ -26,18 +26,18 @@ public class Rational {
 	    denominator = 1;
 	}
     }
-    public double floatValue() {
+    public double floatValue() { //makes it a double so it is more precise
 	return (double)numerator / denominator;
     }
 
-    public String toString() {
+    public String toString() { //this is the way that fractions are usually written out
 	return numerator + "/" + denominator;
     }
-    public void multiply(Rational i) {
+    public void multiply(Rational i) { //multiplies the numerators together as well as denominators
 	numerator *= i.getNum();
 	denominator *= i.getDenom();
     }
-    public void divide(Rational i) {
+    public void divide(Rational i) { //makes sure i is not equal to zero and multiplies by i's reciprocal
 	if (i.getNum() == 0){
 	    System.out.println("Y u divide by zero, m8?");
 	    return;
@@ -55,11 +55,28 @@ public class Rational {
     public int gcd() {
 	return gcd(numerator,denominator);
     }
+    public static int gcd(int num, int denom) {
+        if (denom > num){
+            return gcd(denom, num);
+        } else{
+            while((num % denom) != 0){
+                int holder = num;
+                num = denom;
+                denom = (holder % denom);
+            }
+	    return denom;
+	}
+    }
     public void reduce() {
 	int gcd = gcd();
 	denominator /= gcd;
 	numerator /= gcd;
     }
+    public int compareTo(Rational i){ //this basically returns the numerator of 
+	                              //what the subtract method yields
+	return getNum() * i.getDenom() - getDenom() * i.getNum();
+    }
+	
     public static void main(String[] args){
 	Rational rat1 = new Rational();
 	Rational rat2 = new Rational(1,2);
@@ -77,6 +94,14 @@ public class Rational {
 	System.out.println(rat4);
 	rat4.subtract(rat2); //1/2
 	System.out.println(rat4);
+	System.out.println( gcd(12,16) );
+	System.out.println( rat4.gcd() );
+	rat4.reduce();
+	System.out.println(rat4);
+	System.out.println( rat4.compareTo(rat2) );
+	System.out.println( rat4.compareTo(rat3) );
+	System.out.println( rat4.compareTo(rat1) );
+	System.out.println( rat4.compareTo(rat4) );
     }
 }
 
