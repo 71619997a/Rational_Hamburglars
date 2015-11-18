@@ -52,6 +52,14 @@ public class Rational {
     public void subtract(Rational i){
 	add(new Rational(-i.getNum(),i.getDenom()));
     }
+    public int gcd() {
+	return gcd(numerator,denominator);
+    }
+    public void reduce() {
+	int gcd = gcd();
+	denominator /= gcd;
+	numerator /= gcd;
+    }
     public static void main(String[] args){
 	Rational rat1 = new Rational();
 	Rational rat2 = new Rational(1,2);
