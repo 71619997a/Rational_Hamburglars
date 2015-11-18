@@ -45,6 +45,13 @@ public class Rational {
 	Rational recipI = new Rational(i.getDenom(),i.getNum());
 	multiply(recipI);
     }
+    public void add(Rational i){
+	numerator = getNum() * i.getDenom() + getDenom() * i.getNum();
+	denominator = getDenom() * i.getDenom();
+    }
+    public void subtract(Rational i){
+	add(new Rational(-i.getNum(),i.getDenom()));
+    }
     public static void main(String[] args){
 	Rational rat1 = new Rational();
 	Rational rat2 = new Rational(1,2);
@@ -57,6 +64,11 @@ public class Rational {
 	System.out.println(rat3);
 	rat3.divide(rat1);
 	System.out.println(rat3);
+	Rational rat4 = new Rational(1,2);
+	rat4.add(rat2); //8/6
+	System.out.println(rat4);
+	rat4.subtract(rat2); //1/2
+	System.out.println(rat4);
     }
 }
 
