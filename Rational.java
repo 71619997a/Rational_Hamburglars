@@ -1,4 +1,4 @@
-/* Team Hamburglars: Sarah Yoon and Gabriel Marks
+/* Team Hamburglars: Adam McKoy and Gabriel Marks
 APCS1 pd10
 HW32 -- Irrationality Stops Here
 2015-11-17 */
@@ -38,8 +38,12 @@ public class Rational {
 	denominator *= i.getDenom();
     }
     public void divide(Rational i) {
-	Rational recip = new Rational(i.getDenom(),i.getNum());
-	multiply(recip);
+	if (i.getNum() == 0){
+	    System.out.println("Y u divide by zero, m8?");
+	    return;
+	}
+	Rational recipI = new Rational(i.getDenom(),i.getNum());
+	multiply(recipI);
     }
     public static void main(String[] args){
 	Rational rat1 = new Rational();
@@ -50,6 +54,8 @@ public class Rational {
 	rat2.multiply(rat3); //5/6
 	System.out.println(rat2);
 	rat3.divide(rat2); //2 = 30/15
+	System.out.println(rat3);
+	rat3.divide(rat1);
 	System.out.println(rat3);
     }
 }
