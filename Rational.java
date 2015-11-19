@@ -72,9 +72,12 @@ public class Rational {
 	denominator /= gcd;
 	numerator /= gcd;
     }
-    public int compareTo(Rational i){ //this basically returns the numerator of 
-	                              //what the subtract method yields
-	return getNum() * i.getDenom() - getDenom() * i.getNum();
+    public int compareTo(Rational i){	                             
+	double other = i.floatValue();
+	double thisv = floatValue();
+	if(thisv>other) return 1;
+	else if(thisv<other) return -1;
+	else return 0;
     }
 	
     public static void main(String[] args){
