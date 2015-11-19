@@ -1,7 +1,7 @@
 /* Team Hamburglars: Adam McKoy and Gabriel Marks
    APCS1 pd10
    HW33 -- Do You Even Add, Bro?
-   2015-11-19 */
+   2015-11-19 */ 
 
 public class Rational {
     private int numerator;
