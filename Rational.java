@@ -72,18 +72,27 @@ public class Rational {
 	denominator /= gcd;
 	numerator /= gcd;
     }
-    public int compareTo(Rational i){	                             
-	double other = i.floatValue();
-	double thisv = floatValue();
-	if(thisv>other) return 1;
-	else if(thisv<other) return -1;
-	else return 0;
+    public int compareTo(Rational i){
+	int difference = getNum() * i.getDenom() - getDenom() * i.getNum();
+	if (difference > 0){
+	    return 1;
+	} else if(difference < 0){
+	    return -1;
+	} else{
+	    return 0;
+	}
+
+
     }
-	
+    public boolean equals(Rational i){
+	return compareTo(i) == 0;
+    }
     public static void main(String[] args){
 	Rational rat1 = new Rational();
 	Rational rat2 = new Rational(1,2);
 	Rational rat3 = new Rational(5,3);
+	Rational rat5 = new Rational(3,4);
+	Rational rat6 = new Rational(3,4);
 	System.out.println(rat1 + " = " + rat1.floatValue());
 	System.out.println(rat2);
 	rat2.multiply(rat3); //5/6
@@ -105,6 +114,7 @@ public class Rational {
 	System.out.println( rat4.compareTo(rat3) );
 	System.out.println( rat4.compareTo(rat1) );
 	System.out.println( rat4.compareTo(rat4) );
+	System.out.println( rat5.equals(rat6) );
+	System.out.println( rat5.equals(rat1) );
     }
 }
-
